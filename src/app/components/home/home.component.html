@@ -1,0 +1,76 @@
+<div class="container">
+    <ngb-carousel id="carousel" [interval]="5000">
+        <ng-template ngbSlide>
+            <div class="carousel-img-wrapper">
+                <img src="../../../assets/slide_studio.jpg" class="carousel-img"
+                    alt="Random first slide" />
+            </div>
+            <div class="carousel-caption">
+                <h3 class="text-dark">Spacious Studio Apartment</h3>
+                <p class="text-dark">Enjoy a modern studio apartment with a view. Perfect for individuals or couples.</p>
+            </div>
+        </ng-template>
+        <ng-template ngbSlide>
+            <div class="carousel-img-wrapper">
+                <img src="../../../assets/slide_luxury.jpg" class="carousel-img"
+                    alt="Random second slide" />
+            </div>
+            <div class="carousel-caption">
+                <h3 class="text-white">Luxury Penthouse</h3>
+                <p class="text-white">Experience luxury living in our exquisite penthouse with breathtaking views.</p>
+            </div>
+        </ng-template>
+        <ng-template ngbSlide>
+            <div class="carousel-img-wrapper">
+                <img src="../../../assets/slide_familiy.jpg" class="carousel-img"
+                    alt="Random third slide" />
+            </div>
+            <div class="carousel-caption">
+                <h3 class="text-dark">Family-Friendly Apartment</h3>
+                <p class="text-dark"> Ideal for families, our spacious apartment offers comfort and convenience.</p>
+            </div>
+        </ng-template>
+    </ngb-carousel>
+
+
+    <div class="row">
+        <div class="col-md-7 d-flex flex-column justify-content-center">
+            <h2 class="featurette-heading">Spacious Studio Apartment</h2>
+            <p class="lead">Enjoy a modern studio apartment with a view. Perfect for individuals or couples.</p>
+            <div class="mt-3">
+                <a routerLink="/houses" class="btn btn-outline-dark">View</a>
+            </div>
+        </div>
+        <div class="col-md-5">
+            <img src="../../../assets/studio_apartment.jpg" height="500px" width="500px"
+                class="img-fluid">
+        </div>
+    </div>
+    <hr>
+    <div class="row">
+        <div class="col-md-5">
+            <img src="../../../assets/luxury_apartment.jpg" height="500px" width="500px" class="img-fluid">
+        </div>
+        <div class="col-md-7 d-flex flex-column justify-content-center">
+            <h2 class="featurette-heading">Luxury Penthouse</h2>
+            <p class="lead">Experience luxury living in our exquisite penthouse with breathtaking views.</p>
+            <div class="mt-3">
+                <a routerLink="/houses" class="btn btn-outline-dark">View</a>
+            </div>
+        </div>
+    </div>
+    <hr>
+    <div class="row">
+        <div class="col-md-7 d-flex flex-column justify-content-center">
+            <h2 class="featurette-heading">Family-Friendly Apartment</h2>
+            <p class="lead">Ideal for families, our spacious apartment offers comfort and convenience.</p>
+            <div class="mt-3">
+                <a routerLink="/houses" class="btn btn-outline-dark">View</a>
+            </div>
+        </div>
+        <div class="col-md-5">
+            <img src="../../../assets/family_apartment.jpg" height="500px" width="500px" class="img-fluid">
+        </div>
+    </div>
+
+</div>
