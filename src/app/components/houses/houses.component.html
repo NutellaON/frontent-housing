@@ -1,0 +1,116 @@
+<div class="container">
+  <h3>List of available Houses:</h3>
+  <ng-container *ngIf="auth.isAuthenticated$ | async">
+    <div class="d-flex justify-content-end mb-3">
+      <button class="btn btn-outline-success" (click)="openAddHouseModal(addHouseModal)">Add New House</button>
+    </div>
+  </ng-container>
+  <div class="row">
+    <div class="col" *ngFor="let house of houses">
+      <div class="card" style="width: 18rem;">
+        <div class="card-body">
+          <p class="card-text">Location: {{ house.iela }} {{ house.numurs }}</p>
+          <p class="card-text">City: {{ house.pilseta }}</p>
+          <p class="card-text">Country: {{ house.valsts | uppercase }}</p>
+          <p class="card-text">Zipcode: {{ house.pasta_indekss }}</p>
+          <div class="d-flex justify-content-between">
+            <a [routerLink]="['/houses', house.id]" class="btn btn-outline-dark">View House</a>
+            <ng-container *ngIf="auth.isAuthenticated$ | async">
+              <div>
+                <button class="btn btn-outline-success me-2" (click)="openEditHouseModal(editConfirmationModal, house)">Edit</button>
+                <button class="btn btn-outline-danger" (click)="openDeleteHouseModal(deleteConfirmationModal, house)">Delete</button>
+              </div>
+            </ng-container>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #addHouseModal  let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-crate-house">Create new House</h4>
+    <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+  </div>
+  <div class="modal-body">
+    <form>
+      <div class="mb-3">
+        <label for="street">Street</label>
+        <input id="street" class="form-control" name="street" placeholder="Enter street" [(ngModel)]="newHouse.iela" />
+      </div>
+      <div class="mb-3">
+        <label for="number">Number</label>
+        <input id="number" class="form-control" name="number" placeholder="Enter number" [(ngModel)]="newHouse.numurs" />
+      </div>
+      <div class="mb-3">
+        <label for="city">City</label>
+        <input id="city" class="form-control" name="city" placeholder="Enter city" [(ngModel)]="newHouse.pilseta" />
+      </div>
+      <div class="mb-3">
+        <label for="country">Country</label>
+        <input id="country" class="form-control" name="country" placeholder="Enter country" [(ngModel)]="newHouse.valsts" />
+      </div>
+      <div class="mb-3">
+        <label for="zipcode">Zip Code</label>
+        <input id="zipcode" class="form-control" name="zipcode" placeholder="Enter zip code" [(ngModel)]="newHouse.pasta_indekss" />
+      </div>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-dark" (click)="modal.dismiss('Cancel click')">Cancel</button>
+    <button type="button" class="btn btn-outline-success" (click)="onSaveClick()">Save</button>
+  </div>
+</ng-template>
+
+<ng-template #editConfirmationModal  let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-edit-house">Edit house</h4>
+    <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+  </div>
+  <div class="modal-body">
+    <form>
+      <div class="mb-3">
+        <label for="street">Street</label>
+        <input id="street" class="form-control" name="street" placeholder="Enter street" [(ngModel)]="selectedHouse.iela" />
+      </div>
+      <div class="mb-3">
+        <label for="number">Number</label>
+        <input id="number" class="form-control" name="number" placeholder="Enter number" [(ngModel)]="selectedHouse.numurs" />
+      </div>
+      <div class="mb-3">
+        <label for="city">City</label>
+        <input id="city" class="form-control" name="city" placeholder="Enter city" [(ngModel)]="selectedHouse.pilseta" />
+      </div>
+      <div class="mb-3">
+        <label for="country">Country</label>
+        <input id="country" class="form-control" name="country" placeholder="Enter country" [(ngModel)]="selectedHouse.valsts" />
+      </div>
+      <div class="mb-3">
+        <label for="zipcode">Zip Code</label>
+        <input id="zipcode" class="form-control" name="zipcode" placeholder="Enter zip code" [(ngModel)]="selectedHouse.pasta_indekss" />
+      </div>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-dark" (click)="modal.dismiss('Cancel click')">Cancel</button>
+    <button type="button" class="btn btn-outline-success" (click)="editHouse()">Edit</button>
+  </div>
+</ng-template>
+
+<ng-template #deleteConfirmationModal  let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-delete-house">Are you sure you want to delete?</h4>
+    <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+  </div>
+  <div class="modal-body">
+      <p class="card-text">Location: {{ selectedHouse.iela }} {{ selectedHouse.numurs }}</p>
+      <p>City: {{ selectedHouse.pilseta }}</p>
+      <p>Country: {{ selectedHouse.valsts }}</p>
+      <p>Zip Code: {{ selectedHouse.pasta_indekss }}</p>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-dark" (click)="modal.dismiss('Cancel click')">Cancel</button>
+    <button type="button" class="btn btn-outline-danger" (click)="deleteHouse()">Delete</button>
+  </div>
+</ng-template>

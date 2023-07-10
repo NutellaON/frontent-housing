@@ -1,0 +1,28 @@
+<div class="container">
+    <h3>Current apartment:</h3>
+    <div *ngIf="apartment">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Number</th>
+                    <th scope="col">Floor</th>
+                    <th scope="col">Room count</th>
+                    <th scope="col">Habitant count</th>
+                    <th scope="col">Full area</th>
+                    <th scope="col">Living space</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>{{ apartment.numurs }}</td>
+                    <td>{{ apartment.stavs }}</td>
+                    <td>{{ apartment.istabu_skaits }}</td>
+                    <td>{{ apartment.iedzivotaju_skaits }}</td>
+                    <td>{{ apartment.pilna_platiba }} m²</td>
+                    <td>{{ apartment.dzivojama_platiba }} m²</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <app-residents></app-residents>
+</div>

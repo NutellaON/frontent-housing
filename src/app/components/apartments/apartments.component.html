@@ -1,0 +1,25 @@
+<h3 class="mb-4">List of available Apartment:</h3>
+<div class="row">
+    <div class="col" *ngFor="let apartment of apartments">
+        <div class="card" style="width: 18rem;">
+            <div class="card-body">
+                <p class="card-text">Number: {{apartment.numurs}}</p>
+                <p class="card-text">Floor: {{ apartment.stavs }}</p>
+                <p class="card-text">Room count: {{ apartment.istabu_skaits }}</p>
+                <p class="card-text">Habitant count: {{ apartment.iedzivotaju_skaits }}</p>
+                <p class="card-text">Full area: {{ apartment.pilna_platiba }} m²</p>
+                <p class="card-text">Living space: {{ apartment.dzivojama_platiba }} m²</p>
+                <a [routerLink]="['/apartments', apartment.id]" class="btn btn-outline-dark">View Details</a>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="d-flex flex-column align-items-center justify-content-center m-5" *ngIf="apartments.length === 0">
+    <h3 class="text-center">Sorry, there are no available apartments for this house. <span><i
+                class="bi bi-emoji-frown"></i></span></h3>
+    <div class="mt-3">
+        <a routerLink="/houses" class="btn btn-outline-dark"><span><i class="bi bi-arrow-left"></i></span> Back to
+            Houses
+            List</a>
+    </div>
+</div>

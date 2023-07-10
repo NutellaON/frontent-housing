@@ -1,0 +1,26 @@
+<div class="container">
+    <h3>Current house:</h3>
+    <div *ngIf="house">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Number</th>
+                    <th scope="col">Street</th>
+                    <th scope="col">City</th>
+                    <th scope="col">Country</th>
+                    <th scope="col">Zipcode</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>{{ house.numurs }}</td>
+                    <td>{{ house.iela }}</td>
+                    <td>{{ house.pilseta }}</td>
+                    <td>{{ house.valsts }}</td>
+                    <td>{{ house.pasta_indekss }}</td>
+                </tr>
+            </tbody>
+        </table>
+        <app-apartments></app-apartments>
+    </div>
+</div>
